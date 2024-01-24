@@ -3,29 +3,24 @@ extends CharacterBody2D
 # export variables
 @export var acceleration := 10.0
 @export var max_speed := 350
-@export var rotation_speed := 225.0
+@export var rotation_speed := 500
+
+
 
 func _physics_process(delta):
 	
 	# get input vector from keybinds
-	var input_vector := Vector2(0, Input.get_axis("move_forward", "move_backward"))
+	var input_vector := Vector2(Input.get_axis("move_left","move_right"), Input.get_axis("move_forward", "move_backward"))
 	velocity += input_vector.rotated(rotation) * acceleration
 	# limit velocity of player
 	velocity = velocity.limit_length(max_speed)
-	
-	# rotate right
-	if Input.is_action_pressed("rotate_right"):
-		# multiply by delta so frame rate independent
-		rotate(deg_to_rad(rotation_speed * delta))
-	# rotate left
-	if Input.is_action_pressed("rotate_left"):
-		# multiply by delta so frame rate independent
-		rotate(deg_to_rad(-rotation_speed * delta))
+
 	
 	# if no keys are being pressed slowly reduce velocity to zero
 	if input_vector.y == 0:
 		velocity = velocity.move_toward(Vector2.ZERO, 3)
 	
+
 	move_and_slide()
 	
 	# screen size variable for respawn effect at other side of screen

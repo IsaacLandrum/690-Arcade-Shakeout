@@ -16,6 +16,7 @@ gizmo_extents = 216.5
 script = ExtResource("3_o5k7j")
 
 [node name="Sprite2D" type="Sprite2D" parent="Marker2D"]
+rotation = 1.5708
 scale = Vector2(0.0544748, -0.0535355)
 texture = ExtResource("1_cpxr4")
 

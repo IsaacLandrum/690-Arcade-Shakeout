@@ -9,15 +9,19 @@ radius = 30.0666
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_c4yes")
+acceleration = null
+max_speed = null
+rotation_speed = null
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(20, -4)
+scale = Vector2(0.407018, 0.393103)
+texture = ExtResource("1_cpxr4")
 
 [node name="Marker2D" type="Marker2D" parent="."]
 scale = Vector2(7.47168, -7.34285)
 gizmo_extents = 216.5
 script = ExtResource("3_o5k7j")
-
-[node name="Sprite2D" type="Sprite2D" parent="Marker2D"]
-scale = Vector2(0.0544748, -0.0535355)
-texture = ExtResource("1_cpxr4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, 0)
