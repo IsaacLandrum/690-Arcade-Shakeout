@@ -7,6 +7,8 @@
 radius = 30.0666
 
 [node name="Player" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 5
 script = ExtResource("1_c4yes")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -17,3 +19,6 @@ texture = ExtResource("1_cpxr4")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(5, 20)
 shape = SubResource("CircleShape2D_e2lha")
+
+[node name="Muzzle" type="Node2D" parent="."]
+position = Vector2(19, -54)
