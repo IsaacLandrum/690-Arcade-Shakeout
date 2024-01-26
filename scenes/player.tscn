@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://c6lplsbhr5ve"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_c4yes"]
-[ext_resource type="Texture2D" uid="uid://lh33sw0tpfkl" path="res://assets/survivor-idle_rifle_0.png" id="1_cpxr4"]
+[ext_resource type="Texture2D" uid="uid://b6jsnwxi7utvf" path="res://assets/hazmat_sprite.png" id="2_ji67p"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_e2lha"]
 radius = 30.0666
@@ -12,13 +12,14 @@ collision_mask = 5
 script = ExtResource("1_c4yes")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-rotation = -1.5708
-scale = Vector2(0.4, 0.4)
-texture = ExtResource("1_cpxr4")
+position = Vector2(4, 20)
+rotation = -3.14159
+scale = Vector2(1.17893, 1.17893)
+texture = ExtResource("2_ji67p")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(5, 20)
 shape = SubResource("CircleShape2D_e2lha")
 
 [node name="Muzzle" type="Node2D" parent="."]
-position = Vector2(19, -54)
+position = Vector2(17, -17)
