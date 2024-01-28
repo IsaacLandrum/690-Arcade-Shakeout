@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://clq8q118wkjdl"]
 
 [ext_resource type="Script" path="res://scripts/asteroid.gd" id="1_hivd4"]
-[ext_resource type="Texture2D" uid="uid://c0lnw1k7yk8vb" path="res://assets/bigslime.png" id="2_lyr82"]
+[ext_resource type="Texture2D" uid="uid://c3dq8b0rojm0x" path="res://assets/skeleton-attack_0.png" id="2_iryj5"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rsyrk"]
 radius = 24.0208
@@ -10,9 +10,8 @@ radius = 24.0208
 script = ExtResource("1_hivd4")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-0.109451, -0.109449)
-scale = Vector2(0.582189, 0.582189)
-texture = ExtResource("2_lyr82")
+scale = Vector2(0.224378, 0.224378)
+texture = ExtResource("2_iryj5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_rsyrk")

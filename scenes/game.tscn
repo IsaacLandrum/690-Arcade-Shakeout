@@ -14,23 +14,25 @@ position = Vector2(629, 388)
 
 [node name="Bullets" type="Node" parent="."]
 
-[node name="Asteroid" parent="." instance=ExtResource("2_rfl42")]
+[node name="Asteroids" type="Node" parent="."]
+
+[node name="Asteroid" parent="Asteroids" instance=ExtResource("2_rfl42")]
 position = Vector2(211, 168)
 
-[node name="Asteroid2" parent="." instance=ExtResource("2_rfl42")]
+[node name="Asteroid2" parent="Asteroids" instance=ExtResource("2_rfl42")]
 position = Vector2(328, 594)
 
-[node name="Asteroid3" parent="." instance=ExtResource("2_rfl42")]
+[node name="Asteroid3" parent="Asteroids" instance=ExtResource("2_rfl42")]
 position = Vector2(958, 195)
 
-[node name="Asteroid4" parent="." instance=ExtResource("2_rfl42")]
+[node name="Asteroid4" parent="Asteroids" instance=ExtResource("2_rfl42")]
 position = Vector2(1075, 591)
 
-[node name="Asteroid5" parent="." instance=ExtResource("2_rfl42")]
+[node name="Asteroid5" parent="Asteroids" instance=ExtResource("2_rfl42")]
 position = Vector2(462, 278)
 
-[node name="Asteroid6" parent="." instance=ExtResource("3_kgi2l")]
+[node name="Asteroid6" parent="Asteroids" instance=ExtResource("3_kgi2l")]
 position = Vector2(309, 163)
 
-[node name="Asteroid7" parent="." instance=ExtResource("4_ruxpw")]
+[node name="Asteroid7" parent="Asteroids" instance=ExtResource("4_ruxpw")]
 position = Vector2(370, 161)
