@@ -3,7 +3,7 @@ class_name  Asteroid extends Area2D
 signal exploded(pos, size)
 
 enum AsteroidSize{SMALL, MEDIUM, LARGE}
-@export var size := AsteroidSize.LARGE 
+@export var size := AsteroidSize.LARGE
 
 	
 var movement_vector  := Vector2(0,-1)
