@@ -1,6 +1,7 @@
-extends CharacterBody2D
+class_name Player extends CharacterBody2D
 
 signal bullet_shot(bullet)
+signal died
 
 # export variables
 @export var acceleration := 10.0
@@ -8,8 +9,11 @@ signal bullet_shot(bullet)
 @export var rotation_speed := 225.0
 
 @onready var muzzle = $Muzzle
+@onready var sprite = $Sprite2D
 
 var bullet_scene = preload("res://scenes/bullet.tscn")
+
+var alive := true
 
 func _process(delta):
 	if Input.is_action_just_pressed("shoot"):
@@ -59,5 +63,21 @@ func shoot_bullet():
 	b.rotation = rotation
 	emit_signal("bullet_shot", b)
 
+func die():
+	if alive == true:
+		alive = false
+		var pos = self.global_position
+		emit_signal("died", pos)
+		sprite.visible = false
+		process_mode = Node.PROCESS_MODE_DISABLED
 
-
+func respawn(pos):
+	if alive  == false:
+		global_position = pos
+		velocity = Vector2.ZERO
+		sprite.visible = true
+		process_mode = Node.PROCESS_MODE_INHERIT
+		# gives player 3 seconds of invulnerability after respawn since alive is
+		# set to true after 3 seconds
+		await get_tree().create_timer(3).timeout
+		alive = true
