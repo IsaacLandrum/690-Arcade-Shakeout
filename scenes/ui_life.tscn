@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://dvdne630r4cnl"]
+
+[ext_resource type="Texture2D" uid="uid://bi11v2kavng7w" path="res://assets/hazcartfinal_.png" id="1_r5dup"]
+
+[node name="UILife" type="TextureRect"]
+offset_left = 27.0
+offset_top = 66.0
+offset_right = 65.0
+offset_bottom = 133.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_r5dup")
