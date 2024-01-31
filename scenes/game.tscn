@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dc0jfadk8m1fu"]
+[gd_scene load_steps=10 format=3 uid="uid://dc0jfadk8m1fu"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_nqcfv"]
 [ext_resource type="PackedScene" uid="uid://c6lplsbhr5ve" path="res://scenes/player.tscn" id="1_x87d5"]
@@ -7,7 +7,13 @@
 [ext_resource type="PackedScene" uid="uid://clq8q118wkjdl" path="res://scenes/asteroid_med.tscn" id="3_kgi2l"]
 [ext_resource type="PackedScene" uid="uid://de6avbn3e0it0" path="res://scenes/game_over_screen_new.tscn" id="4_pwx0s"]
 [ext_resource type="PackedScene" uid="uid://b1rjv1ois4p5a" path="res://scenes/asteroid_small.tscn" id="4_ruxpw"]
-[ext_resource type="Texture2D" uid="uid://ble4offc6ekyc" path="res://assets/parking_lot_final.jpg" id="8_s02rw"]
+[ext_resource type="Texture2D" uid="uid://bp0ioge5rexii" path="res://assets/parking_lot_final.jpg" id="8_ii44s"]
+
+[sub_resource type="GDScript" id="GDScript_flxwp"]
+script/source = "extends Control
+
+
+"
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_nqcfv")
@@ -57,10 +63,8 @@ position = Vector2(370, 161)
 collision_layer = 4
 collision_mask = 11
 
-[node name="TextureRect" type="TextureRect" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
-texture = ExtResource("8_s02rw")
-
-[node name="Player" parent="." instance=ExtResource("1_x87d5")]
-position = Vector2(629, 388)
+[node name="Background" type="TextureRect" parent="."]
+show_behind_parent = true
+offset_right = 1280.0
+offset_bottom = 720.0
+texture = ExtResource("8_ii44s")
