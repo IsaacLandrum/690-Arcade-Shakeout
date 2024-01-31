@@ -4,7 +4,6 @@ extends Node2D
 @onready var player = $Player
 @onready var asteroids = $Asteroids
 @onready var hud = $UI/HUD
-@onready var game_over_screen = $UI/GameOverScreen
 @onready var new_game_over_screen = $UI/GameOverScreenNew
 
 var asteroid_large_scene = preload("res://scenes/asteroid_large.tscn")
