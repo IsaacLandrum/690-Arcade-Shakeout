@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://keagktggccri" path="res://scenes/hud.tscn" id="2_2v7m6"]
 [ext_resource type="PackedScene" uid="uid://cf0c8m65ipk8d" path="res://scenes/asteroid_large.tscn" id="2_rfl42"]
 [ext_resource type="PackedScene" uid="uid://clq8q118wkjdl" path="res://scenes/asteroid_med.tscn" id="3_kgi2l"]
-[ext_resource type="PackedScene" uid="uid://cpa0k4jq5ba32" path="res://scenes/game_over_screen.tscn" id="3_lpe6y"]
+[ext_resource type="PackedScene" uid="uid://de6avbn3e0it0" path="res://scenes/game_over_screen_new.tscn" id="4_pwx0s"]
 [ext_resource type="PackedScene" uid="uid://b1rjv1ois4p5a" path="res://scenes/asteroid_small.tscn" id="4_ruxpw"]
 [ext_resource type="Texture2D" uid="uid://bp0ioge5rexii" path="res://assets/parking_lot_final.jpg" id="8_ii44s"]
 
@@ -22,11 +22,7 @@ script = ExtResource("1_nqcfv")
 
 [node name="HUD" parent="UI" instance=ExtResource("2_2v7m6")]
 
-[node name="GameOverScreen" parent="UI" instance=ExtResource("3_lpe6y")]
-script = SubResource("GDScript_flxwp")
-
-[node name="Player" parent="." instance=ExtResource("1_x87d5")]
-position = Vector2(629, 388)
+[node name="GameOverScreenNew" parent="UI" instance=ExtResource("4_pwx0s")]
 
 [node name="Bullets" type="Node" parent="."]
 
