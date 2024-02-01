@@ -7,6 +7,7 @@ extends Node2D
 @onready var new_game_over_screen = $UI/GameOverScreenNew
 @onready var UFO = $UFO
 @onready var UFOProjectiles = $UFOProjectiles
+@onready var BarrierPickup = $BarrierPickup
 
 var asteroid_large_scene = preload("res://scenes/asteroid_large.tscn")
 var asteroid_medium_scene = preload("res://scenes/asteroid_med.tscn")
@@ -30,9 +31,9 @@ func _ready():
 	player.connect("died", _on_player_died)
 	UFO.connect("projectile_shot", _on_UFO_projectile_shot)
 	UFO.connect("is_shot", _on_UFO_is_shot)
-	
 	UFO.despawn()
 	startUFOSpawnTimer()
+	BarrierPickup.despawn()
 	
 	for asteroid in asteroids.get_children():
 		asteroid.connect("exploded", _on_asteroid_exploded)
@@ -52,9 +53,10 @@ func _on_timer_timeout():
 func _on_UFO_projectile_shot(projectile):
 	UFOProjectiles.add_child(projectile)
 	
-func _on_UFO_is_shot(points):
+func _on_UFO_is_shot(points, pos):
 	score += points
 	startUFOSpawnTimer()
+	BarrierPickup.spawn(pos)
 
 func _on_player_bullet_shot(bullet):
 	bullets.add_child(bullet)

@@ -10,10 +10,15 @@ signal died
 
 @onready var muzzle = $Muzzle
 @onready var sprite = $Sprite2D
+@onready var barrier_sprite = $BarrierSprite
 
 var bullet_scene = preload("res://scenes/bullet.tscn")
 
 var alive := true
+var barrier := false
+
+func _ready():
+	barrier_sprite.visible = false
 
 func _process(delta):
 	if Input.is_action_just_pressed("shoot"):
@@ -65,7 +70,10 @@ func shoot_bullet():
 	emit_signal("bullet_shot", b)
 
 func die():
-	if alive == true:
+	if barrier == true:
+		barrier_deactivate()
+	
+	elif alive == true:
 		alive = false
 		var pos = self.global_position
 		emit_signal("died", pos)
@@ -82,3 +90,13 @@ func respawn(pos):
 		# set to true after 3 seconds
 		await get_tree().create_timer(3).timeout
 		alive = true
+
+func barrier_activate():
+	barrier = true
+	barrier_sprite.visible = true
+
+func barrier_deactivate():
+	barrier_sprite.visible = false
+	barrier = false
+	print("Deactivate")
+	

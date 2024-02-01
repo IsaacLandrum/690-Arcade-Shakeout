@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://m3p5c15h2yl8"]
+[gd_scene load_steps=4 format=3 uid="uid://psbi33aqows8"]
 
 [ext_resource type="Script" path="res://scripts/ufo.gd" id="1_ir4wn"]
 [ext_resource type="Texture2D" uid="uid://b4jp2q7fxnuhj" path="res://assets/hazufo.png" id="2_nw61b"]

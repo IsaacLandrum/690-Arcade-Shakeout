@@ -10,6 +10,7 @@ var movement_angle := 0
 var points := 200
 
 @onready var muzzle = $Muzzle
+@onready var sprite = $Sprite2D
 
 var projectile_scene = preload("res://scenes/ufo_projectile.tscn")
 
@@ -68,7 +69,8 @@ func spawn():
 			pass
 
 func shot():
-	emit_signal("is_shot", points)
+	var pos = global_position
+	emit_signal("is_shot", points, pos)
 	despawn()
 
 func despawn():
