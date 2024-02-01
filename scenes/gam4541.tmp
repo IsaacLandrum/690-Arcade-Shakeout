@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dc0jfadk8m1fu"]
+[gd_scene load_steps=9 format=3 uid="uid://dc0jfadk8m1fu"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_nqcfv"]
 [ext_resource type="PackedScene" uid="uid://keagktggccri" path="res://scenes/hud.tscn" id="2_2v7m6"]
@@ -8,7 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://b1rjv1ois4p5a" path="res://scenes/asteroid_small.tscn" id="4_ruxpw"]
 [ext_resource type="Texture2D" uid="uid://bp0ioge5rexii" path="res://assets/parking_lot_final.jpg" id="8_ii44s"]
 [ext_resource type="PackedScene" uid="uid://c6lplsbhr5ve" path="res://scenes/player.tscn" id="8_itb1j"]
-[ext_resource type="PackedScene" uid="uid://m3p5c15h2yl8" path="res://scenes/ufo.tscn" id="9_gt6b1"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_nqcfv")
@@ -25,24 +24,38 @@ script = ExtResource("1_nqcfv")
 
 [node name="Asteroid" parent="Asteroids" instance=ExtResource("2_rfl42")]
 position = Vector2(211, 168)
+collision_layer = 4
+collision_mask = 11
 
 [node name="Asteroid2" parent="Asteroids" instance=ExtResource("2_rfl42")]
 position = Vector2(328, 594)
+collision_layer = 4
+collision_mask = 11
 
 [node name="Asteroid3" parent="Asteroids" instance=ExtResource("2_rfl42")]
 position = Vector2(958, 195)
+collision_layer = 4
+collision_mask = 11
 
 [node name="Asteroid4" parent="Asteroids" instance=ExtResource("2_rfl42")]
 position = Vector2(1075, 591)
+collision_layer = 4
+collision_mask = 11
 
 [node name="Asteroid5" parent="Asteroids" instance=ExtResource("2_rfl42")]
 position = Vector2(462, 278)
+collision_layer = 4
+collision_mask = 11
 
 [node name="Asteroid6" parent="Asteroids" instance=ExtResource("3_kgi2l")]
 position = Vector2(309, 163)
+collision_layer = 4
+collision_mask = 11
 
 [node name="Asteroid7" parent="Asteroids" instance=ExtResource("4_ruxpw")]
 position = Vector2(370, 161)
+collision_layer = 4
+collision_mask = 11
 
 [node name="Background" type="TextureRect" parent="."]
 show_behind_parent = true
@@ -54,7 +67,3 @@ texture = ExtResource("8_ii44s")
 position = Vector2(645, 430)
 
 [node name="UFOSpawnTimer" type="Timer" parent="."]
-
-[node name="UFOProjectiles" type="Node" parent="."]
-
-[node name="UFO" parent="." instance=ExtResource("9_gt6b1")]
