@@ -2,6 +2,7 @@ class_name Player extends CharacterBody2D
 
 signal bullet_shot(bullet)
 signal died
+signal pos
 
 # export variables
 @export var acceleration := 10.0
@@ -18,6 +19,8 @@ var alive := true
 func _process(delta):
 	if Input.is_action_just_pressed("shoot"):
 		shoot_bullet()
+	emit_signal("pos", self.global_position)
+	
 
 func _physics_process(delta):
 	

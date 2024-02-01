@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://m3p5c15h2yl8"]
+
+[ext_resource type="Script" path="res://scripts/ufo.gd" id="1_ir4wn"]
+[ext_resource type="Texture2D" uid="uid://b4jp2q7fxnuhj" path="res://assets/hazufo.png" id="2_nw61b"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pxcpi"]
+radius = 14.0
+height = 52.0
+
+[node name="UFO" type="CharacterBody2D"]
+script = ExtResource("1_ir4wn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2)
+shape = SubResource("CapsuleShape2D_pxcpi")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_nw61b")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(0, 0.250001)
+scale = Vector2(1.4, 2.225)
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
