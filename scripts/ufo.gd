@@ -1,41 +1,45 @@
-extends CharacterBody2D
+class_name UFO extends Area2D
 
-signal exploded(pos, size)
+signal projectile_shot(projectile)
+signal is_shot(points)
 
 var movement_vector  := Vector2(1,0)
 var speed := 75
-
-var timer := Timer.new()
+var movement_angle := 0
 
 var points := 200
 
-var movement_angle := 0
+@onready var muzzle = $Muzzle
+
+var projectile_scene = preload("res://scenes/ufo_projectile.tscn")
 
 func _ready():
-	rotation = randf_range(0,2*PI)
+	startFiringLoop()
 
-func shot():
-	queue_free()
+func startFiringLoop():
+	var timer = get_node("Timer")
+	timer.timeout.connect(_fire_projectile)
+	timer.wait_time = 2
+	timer.start()
 
-func setMovement(location):
-	match location:
-		"top":
-			#Move down
-			movement_angle = randf_range(0,PI)
-		"bottom":
-			#Move up
-			movement_angle = randf_range(PI,2*PI)
-		"left":
-			#Move right
-			movement_angle = randf_range(3*PI/2,5*PI/2)
-		"right":
-			#Move left
-			movement_angle = randf_range(PI/2,3*PI/2)
-		_:
-			pass
+func _fire_projectile():
+	var p = projectile_scene.instantiate()
+	p.global_position = muzzle.global_position
+	p.rotation = rotation + PI
+	var screen_size = get_viewport_rect().size
+	if (
+		position.x < screen_size.x &&
+		position.x > 0 &&
+		position.y < screen_size.y &&
+		position.y > 0
+	):
+		emit_signal("projectile_shot", p)
+	startFiringLoop()
 
 func setRotation(playerPos):
-	pass
+	var direction = playerPos - global_position
+	var angle = atan2(direction.y, direction.x)
+	rotation = angle - PI/2
 
 func spawn():
 	var spawnLocations = ["top", "bottom", "left", "right"]
@@ -47,37 +51,37 @@ func spawn():
 		"top":
 			position.x = (screen_size.x) / 2
 			position.y = -20
-			setMovement("top")
+			movement_angle = randf_range(0,PI)
 		"bottom":
 			position.x = (screen_size.x) / 2
 			position.y = (screen_size.y) + 20
-			setMovement("bottom")
+			movement_angle = randf_range(PI,2*PI)
 		"left":
 			position.x = 20
 			position.y = (screen_size.y) / 2
-			setMovement("left")
+			movement_angle = randf_range(3*PI/2,5*PI/2)
 		"right":
 			position.x = (screen_size.x) + 20
 			position.y = (screen_size.y) / 2
-			setMovement("right")
+			movement_angle = randf_range(PI/2,3*PI/2)
 		_:
 			pass
-	
+
+func shot():
+	emit_signal("is_shot", points)
+	despawn()
 
 func despawn():
 	position.x = 1000
 	position.y = 1000
 
-func _on_timer_timeout():
-	despawn()
-
 func _physics_process(delta):
 	global_position += movement_vector.rotated(movement_angle) * speed * delta
+
+func _on_visible_on_screen_notifier_2d_screen_exited():
+	despawn()
 
 func _on_body_entered(body):
 	if body is Player:
 		var player = body
 		player.die()
-
-func _on_visible_on_screen_notifier_2d_screen_exited():
-	queue_free()

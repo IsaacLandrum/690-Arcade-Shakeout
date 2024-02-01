@@ -69,4 +69,6 @@ position = Vector2(645, 430)
 
 [node name="UFOSpawnTimer" type="Timer" parent="."]
 
+[node name="UFOProjectiles" type="Node" parent="."]
+
 [node name="UFO" parent="." instance=ExtResource("9_gt6b1")]

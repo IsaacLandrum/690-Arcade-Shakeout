@@ -3,16 +3,16 @@
 [ext_resource type="Script" path="res://scripts/ufo.gd" id="1_ir4wn"]
 [ext_resource type="Texture2D" uid="uid://b4jp2q7fxnuhj" path="res://assets/hazufo.png" id="2_nw61b"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pxcpi"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_70dbg"]
 radius = 14.0
-height = 52.0
+height = 46.0
 
-[node name="UFO" type="CharacterBody2D"]
+[node name="UFO" type="Area2D"]
+collision_mask = 255
 script = ExtResource("1_ir4wn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 2)
-shape = SubResource("CapsuleShape2D_pxcpi")
+shape = SubResource("CapsuleShape2D_70dbg")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_nw61b")
@@ -21,4 +21,10 @@ texture = ExtResource("2_nw61b")
 position = Vector2(0, 0.250001)
 scale = Vector2(1.4, 2.225)
 
+[node name="Muzzle" type="Node2D" parent="."]
+position = Vector2(0, 12)
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

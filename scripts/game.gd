@@ -6,6 +6,7 @@ extends Node2D
 @onready var hud = $UI/HUD
 @onready var new_game_over_screen = $UI/GameOverScreenNew
 @onready var UFO = $UFO
+@onready var UFOProjectiles = $UFOProjectiles
 
 var asteroid_large_scene = preload("res://scenes/asteroid_large.tscn")
 var asteroid_medium_scene = preload("res://scenes/asteroid_med.tscn")
@@ -27,7 +28,8 @@ func _ready():
 	lives = 3
 	player.connect("bullet_shot", _on_player_bullet_shot)
 	player.connect("died", _on_player_died)
-	player.connect("pos", _on_player_pos)
+	UFO.connect("projectile_shot", _on_UFO_projectile_shot)
+	UFO.connect("is_shot", _on_UFO_is_shot)
 	
 	UFO.despawn()
 	startUFOSpawnTimer()
@@ -35,33 +37,24 @@ func _ready():
 	for asteroid in asteroids.get_children():
 		asteroid.connect("exploded", _on_asteroid_exploded)
 
-#func _process(delta):
-	#UFOs.playerPos(player.global_position)
+func _process(delta):
+	UFO.setRotation(player.global_position)
 
 func startUFOSpawnTimer():
 	var timer = get_node("UFOSpawnTimer")
 	timer.timeout.connect(_on_timer_timeout)
-	timer.wait_time = 2
+	timer.wait_time = randi_range(15,20)
 	timer.start()
 	
 func _on_timer_timeout():
 	UFO.spawn()
-	#spawnUFO()
 	startUFOSpawnTimer()
 
-#func spawnUFO():
-	#var ufo = load("res://scenes/ufo.tscn").instantiate()
-	#UFOs.add_child(ufo)
-	#var spawnLocations = ["top", "bottom", "left", "right"]
-	#var choice = spawnLocations[randi() % spawnLocations.size()]
-	#UFO.spawn(choice)
-
-func _on_player_pos(pos):
-	pass
-	#if ufo_instance:
-		#ufo_instance.setRotation(pos)
-	#else:
-		#print("Doesn't exist")
+func _on_UFO_projectile_shot(projectile):
+	UFOProjectiles.add_child(projectile)
+	
+func _on_UFO_is_shot(points):
+	score += points
 
 func _on_player_bullet_shot(bullet):
 	bullets.add_child(bullet)
