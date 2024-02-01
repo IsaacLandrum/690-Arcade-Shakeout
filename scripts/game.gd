@@ -48,13 +48,13 @@ func startUFOSpawnTimer():
 	
 func _on_timer_timeout():
 	UFO.spawn()
-	startUFOSpawnTimer()
 
 func _on_UFO_projectile_shot(projectile):
 	UFOProjectiles.add_child(projectile)
 	
 func _on_UFO_is_shot(points):
 	score += points
+	startUFOSpawnTimer()
 
 func _on_player_bullet_shot(bullet):
 	bullets.add_child(bullet)
