@@ -114,3 +114,17 @@ func _on_player_died(pos):
 	else:
 		await get_tree().create_timer(1).timeout
 		player.respawn(pos)
+
+
+func _on_asteroid_spawn_timer_timeout():
+	var type = randi_range(0,3)
+	print("new")
+	match type: 
+		0:
+			_spawn_large_asteroid(Vector2(1000,1000))
+		1:
+			_spawn_medium_asteroid(Vector2(1000,1000))
+		2:
+			_spawn_small_asteroid(Vector2(1000,1000))
+		3:
+			pass

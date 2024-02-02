@@ -26,25 +26,25 @@ script = ExtResource("1_nqcfv")
 [node name="Asteroids" type="Node" parent="."]
 
 [node name="Asteroid" parent="Asteroids" instance=ExtResource("2_rfl42")]
-position = Vector2(211, 168)
+position = Vector2(1000, 1000)
 
 [node name="Asteroid2" parent="Asteroids" instance=ExtResource("2_rfl42")]
-position = Vector2(328, 594)
+position = Vector2(1000, 1000)
 
 [node name="Asteroid3" parent="Asteroids" instance=ExtResource("2_rfl42")]
-position = Vector2(958, 195)
+position = Vector2(1000, 1000)
 
 [node name="Asteroid4" parent="Asteroids" instance=ExtResource("2_rfl42")]
-position = Vector2(1075, 591)
+position = Vector2(1000, 1000)
 
 [node name="Asteroid5" parent="Asteroids" instance=ExtResource("2_rfl42")]
-position = Vector2(462, 278)
+position = Vector2(1000, 1000)
 
 [node name="Asteroid6" parent="Asteroids" instance=ExtResource("3_kgi2l")]
-position = Vector2(309, 163)
+position = Vector2(1000, 1000)
 
 [node name="Asteroid7" parent="Asteroids" instance=ExtResource("4_ruxpw")]
-position = Vector2(370, 161)
+position = Vector2(1000, 1000)
 
 [node name="Background" type="TextureRect" parent="."]
 show_behind_parent = true
@@ -54,6 +54,9 @@ texture = ExtResource("8_ii44s")
 
 [node name="Player" parent="." instance=ExtResource("8_itb1j")]
 position = Vector2(645, 430)
+
+[node name="AsteroidSpawnTimer" type="Timer" parent="."]
+autostart = true
 
 [node name="UFOSpawnTimer" type="Timer" parent="."]
 
@@ -66,3 +69,5 @@ position = Vector2(1000, 1000)
 
 [node name="ShotgunPickup" parent="." instance=ExtResource("11_uvem1")]
 position = Vector2(1000, 1000)
+
+[connection signal="timeout" from="AsteroidSpawnTimer" to="." method="_on_asteroid_spawn_timer_timeout"]
