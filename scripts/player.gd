@@ -11,8 +11,11 @@ signal died
 @onready var muzzle = $Muzzle
 @onready var sprite = $Sprite2D
 @onready var barrier_sprite = $BarrierSprite
+@onready var audio = $AudioStreamPlayer2D
 
 var bullet_scene = preload("res://scenes/bullet.tscn")
+var shotgun_sound = preload("res://assets/audio/shotgun shot.mp3")
+var gun_sound =  preload("res://assets/audio/gunshot.mp3")
 
 var alive := true
 var barrier := false
@@ -69,6 +72,7 @@ func _physics_process(delta):
 
 func shoot_bullet():
 	if shotgun:
+		audio.play()
 		var i = 25
 		while i >= -25:
 			var b = bullet_scene.instantiate()
@@ -78,6 +82,7 @@ func shoot_bullet():
 			i = i -25
 		
 	else:
+		audio.play()
 		var b = bullet_scene.instantiate()
 		b.global_position = muzzle.global_position
 		b.rotation = rotation
@@ -112,9 +117,11 @@ func barrier_activate():
 	
 func shotgun_activate():
 	shotgun = true
+	audio.stream = shotgun_sound
 	
 func shotgun_deactivate():
 	shotgun = false
+	audio.stream = gun_sound
 	
 func barrier_deactivate():
 	barrier_sprite.visible = false

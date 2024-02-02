@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://blykfjjw0pabu"
+path="res://.godot/imported/player hit 1.mp3-c9b7aa8c49fea8ca37953379505c4bd1.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/player hit 1.mp3"
+dest_files=["res://.godot/imported/player hit 1.mp3-c9b7aa8c49fea8ca37953379505c4bd1.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
