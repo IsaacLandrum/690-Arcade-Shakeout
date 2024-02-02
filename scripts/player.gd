@@ -27,9 +27,9 @@ func _ready():
 
 func _process(delta):
 	
-
 	if Input.is_action_just_pressed("shoot"):
 		shoot_bullet()
+	
 	
 
 func _physics_process(delta):

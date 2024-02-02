@@ -19,7 +19,7 @@ position = Vector2(-0.5, 6.625)
 scale = Vector2(1.60714, 1.96622)
 texture = ExtResource("2_neojm")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." groups=["Player"]]
 position = Vector2(2.08165e-12, 2.08165e-12)
 rotation = -3.14159
 scale = Vector2(0.918418, 0.918418)

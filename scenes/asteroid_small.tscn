@@ -12,9 +12,10 @@ collision_mask = 11
 script = ExtResource("1_psk3t")
 size = 0
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="LeechSprite2D" type="Sprite2D" parent="."]
 position = Vector2(2.08165e-12, 2.08165e-12)
-scale = Vector2(0.31866, 0.31866)
+rotation = -1.5708
+scale = Vector2(0.812, 0.812)
 texture = ExtResource("2_1vt5u")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
