@@ -1,9 +1,16 @@
-[gd_scene load_steps=6 format=3 uid="uid://c6lplsbhr5ve"]
+[gd_scene load_steps=13 format=3 uid="uid://c6lplsbhr5ve"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_c4yes"]
 [ext_resource type="Texture2D" uid="uid://bi11v2kavng7w" path="res://assets/hazcartfinal_.png" id="2_hol5v"]
 [ext_resource type="Texture2D" uid="uid://dkpso4pidtrgf" path="res://assets/barrierpickupdraft.png" id="2_neojm"]
 [ext_resource type="AudioStream" uid="uid://cpol62kyuyhsk" path="res://assets/audio/gunshot.mp3" id="4_yq0gx"]
+[ext_resource type="AudioStream" uid="uid://blykfjjw0pabu" path="res://assets/audio/player hit 1.mp3" id="5_ruhdf"]
+[ext_resource type="AudioStream" uid="uid://dkfpcntsx65gk" path="res://assets/audio/player hit 2.mp3" id="6_p06sb"]
+[ext_resource type="AudioStream" uid="uid://d086v1qjeel6l" path="res://assets/audio/player hit 3.mp3" id="7_6w426"]
+[ext_resource type="AudioStream" uid="uid://b42cteehllyda" path="res://assets/audio/shotgun pickup.mp3" id="8_41b5v"]
+[ext_resource type="AudioStream" uid="uid://b1iotl8riai1r" path="res://assets/audio/shotgun shot.mp3" id="9_6851t"]
+[ext_resource type="AudioStream" uid="uid://ctdg5vbwuaxtd" path="res://assets/audio/barrier pickup_2.mp3" id="10_72se8"]
+[ext_resource type="AudioStream" uid="uid://bm3rk3dbv3eoi" path="res://assets/audio/barrier down.mp3" id="11_hga6w"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_d53e0"]
 radius = 15.0
@@ -34,3 +41,30 @@ position = Vector2(0, -27)
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_yq0gx")
+
+[node name="Death1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_ruhdf")
+pitch_scale = 1.11
+
+[node name="Death2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_p06sb")
+pitch_scale = 1.11
+
+[node name="Death3" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_6w426")
+pitch_scale = 1.11
+
+[node name="shotgun_up" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_41b5v")
+
+[node name="shotgun_shot" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_6851t")
+volume_db = -5.673
+
+[node name="barrier_up" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_72se8")
+volume_db = -5.673
+
+[node name="barrier_down" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_hga6w")
+volume_db = -5.673

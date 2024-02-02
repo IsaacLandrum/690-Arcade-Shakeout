@@ -8,8 +8,10 @@ enum AsteroidSize{SMALL, MEDIUM, LARGE}
 
 
 
+
 var movement_vector  := Vector2(0,-1)
 var speed := 50
+
 
 var points: int:
 	get :
@@ -82,5 +84,6 @@ func get_player():
 func _on_body_entered(body):
 	if body is Player:
 		var player = body
+		
 		player.die()
 

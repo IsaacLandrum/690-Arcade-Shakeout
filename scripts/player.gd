@@ -16,6 +16,7 @@ signal died
 var bullet_scene = preload("res://scenes/bullet.tscn")
 var shotgun_sound = preload("res://assets/audio/shotgun shot.mp3")
 var gun_sound =  preload("res://assets/audio/gunshot.mp3")
+var snd_arr = ['Death1','Death2','Death3']
 
 var alive := true
 var barrier := false
@@ -72,7 +73,7 @@ func _physics_process(delta):
 
 func shoot_bullet():
 	if shotgun:
-		audio.play()
+		$shotgun_shot.play()
 		var i = 25
 		while i >= -25:
 			var b = bullet_scene.instantiate()
@@ -99,6 +100,7 @@ func die():
 		process_mode = Node.PROCESS_MODE_DISABLED
 		if shotgun == true:
 			shotgun_deactivate()
+		get_node(snd_arr.pick_random()).play() 
 
 func respawn(pos):
 	if alive  == false:
@@ -114,17 +116,20 @@ func respawn(pos):
 func barrier_activate():
 	barrier = true
 	barrier_sprite.visible = true
+	$barrier_up.play()
 	
 func shotgun_activate():
 	shotgun = true
 	audio.stream = shotgun_sound
-	
+	$shotgun_up.play()
 func shotgun_deactivate():
 	shotgun = false
 	audio.stream = gun_sound
 	
+	
 func barrier_deactivate():
 	barrier_sprite.visible = false
 	barrier = false
+	$barrier_down.play()
 	print("Deactivate")
 	

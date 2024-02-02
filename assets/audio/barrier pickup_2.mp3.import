@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ctdg5vbwuaxtd"
+path="res://.godot/imported/barrier pickup_2.mp3-451bf7303387cb515ae69dc111c4dbe3.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/barrier pickup_2.mp3"
+dest_files=["res://.godot/imported/barrier pickup_2.mp3-451bf7303387cb515ae69dc111c4dbe3.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4
