@@ -1,9 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://de6avbn3e0it0"]
+[gd_scene load_steps=4 format=3 uid="uid://de6avbn3e0it0"]
 
 [ext_resource type="Script" path="res://scripts/GameOverScreenNew.gd" id="1_nak1l"]
+[ext_resource type="FontFile" uid="uid://d18e27n5qec10" path="res://assets/VCR_OSD_MONO_1.001.ttf" id="2_vmlbn"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_xhce7"]
+font = ExtResource("2_vmlbn")
 font_size = 48
+font_color = Color(0, 0, 0, 1)
 
 [node name="GameOverScreenNew" type="Control"]
 layout_mode = 3
@@ -14,10 +17,11 @@ script = ExtResource("1_nak1l")
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 0
-offset_left = 599.0
-offset_top = 313.0
-offset_right = 699.0
-offset_bottom = 344.0
+offset_left = 590.0
+offset_top = 288.0
+offset_right = 690.0
+offset_bottom = 319.0
+theme_override_fonts/font = ExtResource("2_vmlbn")
 text = "NEW GAME"
 
 [node name="Label" type="Label" parent="."]

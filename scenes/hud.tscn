@@ -1,10 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://keagktggccri"]
+[gd_scene load_steps=5 format=3 uid="uid://keagktggccri"]
 
 [ext_resource type="Script" path="res://scripts/hud.gd" id="1_hxvi7"]
+[ext_resource type="FontFile" uid="uid://d18e27n5qec10" path="res://assets/VCR_OSD_MONO_1.001.ttf" id="2_b8hpx"]
 [ext_resource type="PackedScene" uid="uid://dvdne630r4cnl" path="res://scenes/ui_life.tscn" id="2_sev71"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_muxou"]
+font = ExtResource("2_b8hpx")
 font_size = 32
+font_color = Color(0, 0, 0, 1)
 
 [node name="HUD" type="Control"]
 layout_mode = 3
@@ -16,9 +19,9 @@ script = ExtResource("1_hxvi7")
 [node name="Score" type="Label" parent="."]
 layout_mode = 0
 offset_left = 26.0
-offset_top = 21.0
-offset_right = 216.0
-offset_bottom = 66.0
+offset_top = 28.0
+offset_right = 235.0
+offset_bottom = 73.0
 text = "SCORE: 9999"
 label_settings = SubResource("LabelSettings_muxou")
 

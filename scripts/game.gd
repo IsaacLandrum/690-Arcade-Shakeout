@@ -36,6 +36,7 @@ func _ready():
 	UFO.despawn()
 	startUFOSpawnTimer()
 	BarrierPickup.despawn()
+	ShotgunPickup.despawn()
 	
 	for asteroid in asteroids.get_children():
 		asteroid.connect("exploded", _on_asteroid_exploded)
