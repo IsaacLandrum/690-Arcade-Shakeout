@@ -32,6 +32,6 @@ offset_bottom = 720.0
 texture = ExtResource("2_wtk53")
 
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]
-[connection signal="pressed" from="VBoxContainer/startButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/startButton" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/startButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/quitButton" to="." method="_on_quit_button_pressed"]
