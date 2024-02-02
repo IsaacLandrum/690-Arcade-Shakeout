@@ -13,6 +13,7 @@ var movement_vector  := Vector2(0,-1)
 var speed := 50
 
 
+
 var points: int:
 	get :
 		match size:
@@ -28,6 +29,8 @@ var points: int:
 func _ready():
 	
 	rotation = randf_range(0,2*PI)
+	if $LeechSprite2D and !$leech_spawn.is_playing() :
+		$leech_spawn.play()
 
 func _physics_process(delta):
 	
