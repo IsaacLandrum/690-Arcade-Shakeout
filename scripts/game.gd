@@ -83,6 +83,7 @@ func _spawn_medium_asteroid(pos):
 	asteroids.call_deferred("add_child", a)
 
 func _spawn_small_asteroid(pos):
+
 	var a = asteroid_small_scene.instantiate()
 	a.global_position = pos
 	a.connect("exploded", _on_asteroid_exploded)
