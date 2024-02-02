@@ -118,7 +118,8 @@ func _on_player_died(pos):
 
 func _on_asteroid_spawn_timer_timeout():
 	var type = randi_range(0,3)
-	print("new")
+	$AsteroidSpawnTimer.wait_time = randf_range(1,12)
+	print($AsteroidSpawnTimer.wait_time)
 	match type: 
 		0:
 			_spawn_large_asteroid(Vector2(1000,1000))

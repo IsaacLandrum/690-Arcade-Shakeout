@@ -56,6 +56,7 @@ texture = ExtResource("8_ii44s")
 position = Vector2(645, 430)
 
 [node name="AsteroidSpawnTimer" type="Timer" parent="."]
+wait_time = 10.0
 autostart = true
 
 [node name="UFOSpawnTimer" type="Timer" parent="."]
