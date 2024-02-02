@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://dq225js8r75j4"]
+
+[ext_resource type="Script" path="res://scripts/shotgun_pickup.gd" id="1_kxgpa"]
+[ext_resource type="Texture2D" uid="uid://chnbuatqtgthi" path="res://assets/shotupdraft.png" id="2_m4gwq"]
+[ext_resource type="AudioStream" uid="uid://b42cteehllyda" path="res://assets/audio/shotgun pickup.mp3" id="3_vllis"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xb0ra"]
+radius = 16.0312
+
+[node name="ShotgunPickup" type="Area2D"]
+collision_layer = 255
+collision_mask = 255
+script = ExtResource("1_kxgpa")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_m4gwq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_xb0ra")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_vllis")
+max_distance = 100000.0
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

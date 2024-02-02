@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://basgqmh368aod"
+path="res://.godot/imported/leech death 1.mp3-c827187b7aa75739806ba80776cc2e2a.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/leech death 1.mp3"
+dest_files=["res://.godot/imported/leech death 1.mp3-c827187b7aa75739806ba80776cc2e2a.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

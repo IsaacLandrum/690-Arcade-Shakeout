@@ -10,14 +10,27 @@ signal died
 
 @onready var muzzle = $Muzzle
 @onready var sprite = $Sprite2D
+@onready var barrier_sprite = $BarrierSprite
+@onready var audio = $AudioStreamPlayer2D
 
 var bullet_scene = preload("res://scenes/bullet.tscn")
+var shotgun_sound = preload("res://assets/audio/shotgun shot.mp3")
+var gun_sound =  preload("res://assets/audio/gunshot.mp3")
 
 var alive := true
+var barrier := false
+var shotgun := false
+
+
+func _ready():
+	barrier_sprite.visible = false
 
 func _process(delta):
+	
+
 	if Input.is_action_just_pressed("shoot"):
 		shoot_bullet()
+	
 
 func _physics_process(delta):
 	
@@ -58,18 +71,34 @@ func _physics_process(delta):
 		global_position.x = 0
 
 func shoot_bullet():
-	var b = bullet_scene.instantiate()
-	b.global_position = muzzle.global_position
-	b.rotation = rotation
-	emit_signal("bullet_shot", b)
+	if shotgun:
+		audio.play()
+		var i = 25
+		while i >= -25:
+			var b = bullet_scene.instantiate()
+			b.global_position = muzzle.global_position
+			b.rotation = rotation +i
+			emit_signal("bullet_shot", b)
+			i = i -25
+		
+	else:
+		audio.play()
+		var b = bullet_scene.instantiate()
+		b.global_position = muzzle.global_position
+		b.rotation = rotation
+		emit_signal("bullet_shot", b)
 
 func die():
-	if alive == true:
+	if barrier == true:
+		barrier_deactivate()
+	elif alive == true:
 		alive = false
 		var pos = self.global_position
 		emit_signal("died", pos)
 		sprite.visible = false
 		process_mode = Node.PROCESS_MODE_DISABLED
+		if shotgun == true:
+			shotgun_deactivate()
 
 func respawn(pos):
 	if alive  == false:
@@ -81,3 +110,21 @@ func respawn(pos):
 		# set to true after 3 seconds
 		await get_tree().create_timer(3).timeout
 		alive = true
+
+func barrier_activate():
+	barrier = true
+	barrier_sprite.visible = true
+	
+func shotgun_activate():
+	shotgun = true
+	audio.stream = shotgun_sound
+	
+func shotgun_deactivate():
+	shotgun = false
+	audio.stream = gun_sound
+	
+func barrier_deactivate():
+	barrier_sprite.visible = false
+	barrier = false
+	print("Deactivate")
+	

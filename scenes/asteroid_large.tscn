@@ -7,6 +7,8 @@
 radius = 59.0085
 
 [node name="Asteroid" type="Area2D"]
+collision_layer = 4
+collision_mask = 11
 script = ExtResource("1_rw12v")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
