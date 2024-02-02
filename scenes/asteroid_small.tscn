@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://b1rjv1ois4p5a"]
 
 [ext_resource type="Script" path="res://scripts/asteroid.gd" id="1_psk3t"]
-[ext_resource type="Texture2D" uid="uid://dbw07avj1ypb2" path="res://assets/bigslimefinal.png" id="2_epg0b"]
+[ext_resource type="Texture2D" uid="uid://h3b7am4hylwk" path="res://assets/leech.png" id="2_1vt5u"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rsyrk"]
 radius = 11.0
@@ -13,7 +13,7 @@ size = 0
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(2.08165e-12, 2.08165e-12)
 scale = Vector2(0.31866, 0.31866)
-texture = ExtResource("2_epg0b")
+texture = ExtResource("2_1vt5u")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_rsyrk")

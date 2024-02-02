@@ -5,7 +5,7 @@ signal exploded(pos, size)
 enum AsteroidSize{SMALL, MEDIUM, LARGE}
 @export var size := AsteroidSize.LARGE
 
-	
+
 var movement_vector  := Vector2(0,-1)
 var speed := 50
 
@@ -22,6 +22,8 @@ var points: int:
 				return 0
 
 func _ready():
+	var leech = get_node(".../Game")
+	leech.ready.connect(leech_behavior)
 	rotation = randf_range(0,2*PI)
 
 func _physics_process(delta):
@@ -46,7 +48,10 @@ func explode():
 	emit_signal("exploded", global_position, size, points)
 	queue_free()
 
+func leech_behavior():
+	print("LEECH")
 func _on_body_entered(body):
 	if body is Player:
 		var player = body
 		player.die()
+

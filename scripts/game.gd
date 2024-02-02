@@ -6,6 +6,8 @@ extends Node2D
 @onready var hud = $UI/HUD
 @onready var game_over_screen = $UI/GameOverScreen
 
+signal leech_spawn
+
 var asteroid_large_scene = preload("res://scenes/asteroid_large.tscn")
 var asteroid_medium_scene = preload("res://scenes/asteroid_med.tscn")
 var asteroid_small_scene = preload("res://scenes/asteroid_small.tscn")
@@ -47,6 +49,7 @@ func _spawn_medium_asteroid(pos):
 	asteroids.call_deferred("add_child", a)
 
 func _spawn_small_asteroid(pos):
+	leech_spawn.emit()
 	var a = asteroid_small_scene.instantiate()
 	a.global_position = pos
 	a.connect("exploded", _on_asteroid_exploded)
