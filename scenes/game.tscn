@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dc0jfadk8m1fu"]
+[gd_scene load_steps=12 format=3 uid="uid://dc0jfadk8m1fu"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_nqcfv"]
 [ext_resource type="PackedScene" uid="uid://keagktggccri" path="res://scenes/hud.tscn" id="2_2v7m6"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://c6lplsbhr5ve" path="res://scenes/player.tscn" id="8_itb1j"]
 [ext_resource type="PackedScene" uid="uid://psbi33aqows8" path="res://scenes/ufo.tscn" id="9_gt6b1"]
 [ext_resource type="PackedScene" uid="uid://ckhpl42qthvu" path="res://scenes/barrier_pickup.tscn" id="10_8hh2o"]
+[ext_resource type="PackedScene" uid="uid://dq225js8r75j4" path="res://scenes/shotgun_pickup.tscn" id="11_uvem1"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_nqcfv")
@@ -61,4 +62,7 @@ position = Vector2(645, 430)
 [node name="UFO" parent="." instance=ExtResource("9_gt6b1")]
 
 [node name="BarrierPickup" parent="." instance=ExtResource("10_8hh2o")]
-position = Vector2(819, 496)
+position = Vector2(1000, 1000)
+
+[node name="ShotgunPickup" parent="." instance=ExtResource("11_uvem1")]
+position = Vector2(1000, 1000)

@@ -8,6 +8,8 @@ extends Node2D
 @onready var UFO = $UFO
 @onready var UFOProjectiles = $UFOProjectiles
 @onready var BarrierPickup = $BarrierPickup
+@onready var ShotgunPickup = $ShotgunPickup
+
 
 var asteroid_large_scene = preload("res://scenes/asteroid_large.tscn")
 var asteroid_medium_scene = preload("res://scenes/asteroid_med.tscn")
@@ -56,7 +58,13 @@ func _on_UFO_projectile_shot(projectile):
 func _on_UFO_is_shot(points, pos):
 	score += points
 	startUFOSpawnTimer()
-	BarrierPickup.spawn(pos)
+	
+	var choice = randi_range(0,1)
+	match choice:
+		0:
+			BarrierPickup.spawn(pos)
+		1:
+			ShotgunPickup.spawn(pos)
 
 func _on_player_bullet_shot(bullet):
 	bullets.add_child(bullet)
